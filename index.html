@@ -2,74 +2,99 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inicio - Mi Web Corporativa</title>
+  <title>Inicio - Mi Web Oscura Neón</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
+    /* --- ESTILO GLOBAL --- */
     body {
       margin: 0;
       font-family: "Segoe UI", sans-serif;
-      background: #eef1f5;
+      background: #0d0d0d;
+      color: #e5e5e5;
     }
 
+    /* --- CABECERA --- */
     header {
-      background: #2563eb;
-      padding: 15px 30px;
-      color: white;
-      font-size: 1.3rem;
+      background: #111;
+      padding: 18px 30px;
+      font-size: 1.4rem;
       font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      color: #00bfff;
+      border-bottom: 1px solid #00bfff33;
+      box-shadow: 0 0 15px #00bfff33;
+      text-shadow: 0 0 8px #00bfff;
     }
 
+    /* --- MENÚ --- */
     nav {
-      background: white;
-      padding: 10px 30px;
+      background: #111;
+      padding: 12px 30px;
       display: flex;
-      gap: 20px;
-      border-bottom: 1px solid #d1d5db;
+      gap: 25px;
+      border-bottom: 1px solid #00bfff22;
     }
 
     nav a {
       text-decoration: none;
-      color: #1f2937;
+      color: #cccccc;
       font-weight: 500;
+      transition: 0.2s;
     }
 
     nav a:hover {
-      color: #2563eb;
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
     }
 
+    /* --- CONTENIDO --- */
     .content {
       max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      margin: 50px auto;
+      background: #111;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px #00bfff22;
+      border: 1px solid #00bfff33;
       text-align: center;
     }
 
+    h1 {
+      color: #00bfff;
+      text-shadow: 0 0 10px #00bfff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #bbbbbb;
+      font-size: 1.1rem;
+    }
+
+    /* --- BOTÓN PRINCIPAL --- */
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #2563eb;
-      color: white;
+      margin-top: 25px;
+      padding: 14px 28px;
+      background: #00bfff;
+      color: #000;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 500;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 0 15px #00bfff;
+      transition: 0.2s;
     }
 
     .btn:hover {
-      background: #1e4fc9;
+      box-shadow: 0 0 25px #00e0ff;
+      background: #33d4ff;
     }
   </style>
 </head>
 
 <body>
 
-<header>Mi Web Corporativa</header>
+<header>Mi Web Oscura Neón</header>
 
 <nav>
   <a href="index.html">Inicio</a>
@@ -79,9 +104,9 @@
 </nav>
 
 <div class="content">
-  <h1 style="color:#1f2937;">Bienvenido a mi Web</h1>
-  <p style="color:#4b5563; font-size:1.1rem;">
-    Aquí podrás consultar mi calendario de turnos actualizado automáticamente.
+  <h1>Bienvenido</h1>
+  <p>
+    Consulta tu calendario de turnos con un diseño moderno, oscuro y elegante.
   </p>
 
   <a class="btn" href="calendario.html">Ir al Calendario</a>
