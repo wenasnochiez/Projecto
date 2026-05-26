@@ -2,115 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inicio - Mi Web Oscura Neón</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    /* --- ESTILO GLOBAL --- */
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #0d0d0d;
-      color: #e5e5e5;
-    }
-
-    /* --- CABECERA --- */
-    header {
-      background: #111;
-      padding: 18px 30px;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #00bfff;
-      border-bottom: 1px solid #00bfff33;
-      box-shadow: 0 0 15px #00bfff33;
-      text-shadow: 0 0 8px #00bfff;
-    }
-
-    /* --- MENÚ --- */
-    nav {
-      background: #111;
-      padding: 12px 30px;
-      display: flex;
-      gap: 25px;
-      border-bottom: 1px solid #00bfff22;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #cccccc;
-      font-weight: 500;
-      transition: 0.2s;
-    }
-
-    nav a:hover {
-      color: #00bfff;
-      text-shadow: 0 0 8px #00bfff;
-    }
-
-    /* --- CONTENIDO --- */
-    .content {
-      max-width: 900px;
-      margin: 50px auto;
-      background: #111;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 0 25px #00bfff22;
-      border: 1px solid #00bfff33;
-      text-align: center;
-    }
-
-    h1 {
-      color: #00bfff;
-      text-shadow: 0 0 10px #00bfff;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #bbbbbb;
-      font-size: 1.1rem;
-    }
-
-    /* --- BOTÓN PRINCIPAL --- */
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
-      background: #00bfff;
-      color: #000;
-      text-decoration: none;
-      border-radius: 10px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      box-shadow: 0 0 15px #00bfff;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      box-shadow: 0 0 25px #00e0ff;
-      background: #33d4ff;
-    }
-  </style>
+  <title>Inicio</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header>Mi Web Oscura Neón</header>
-
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="calendario.html">Calendario</a>
-  <a href="sobre.html">Sobre mí</a>
-  <a href="ajustes.html">Ajustes</a>
-</nav>
+<div id="header"></div>
 
 <div class="content">
   <h1>Bienvenido</h1>
-  <p>
-    Consulta tu calendario de turnos con un diseño moderno, oscuro y elegante.
-  </p>
-
-  <a class="btn" href="calendario.html">Ir al Calendario</a>
+  <p>Página principal de tu web.</p>
 </div>
 
+<div id="footer"></div>
+
+<script src="js/global.js"></script>
 </body>
 </html>
