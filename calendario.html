@@ -5,6 +5,9 @@
   <title>Calendario de Turnos - Oscuro Neón</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/index.global.min.js"></script>
+
+
   <!-- FullCalendar -->
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
@@ -178,6 +181,115 @@ document.addEventListener('DOMContentLoaded', function() {
   calendar.render();
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // 🎨 Generador de color único por nombre (hash → color)
+  function colorFromName(name) {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const hue = Math.abs(hash) % 360; // tono único
+    return `hsl(${hue}, 90%, 55%)`;   // color neón
+  }
+
+  var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+    initialView: 'dayGridMonth',
+
+    eventSources: [
+      {
+        googleCalendarId: 'f5bf2690b6d0d713c1265dc3683e002e37929d5b193ec468e542ddeedfe747bf@group.calendar.google.com',
+        apiKey: 'AIzaSyDgp1W2ygOSoJwv6VIXhzz2JAg075KFN3g',
+        className: 'gcal-event'
+      }
+    ],
+
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,listWeek'
+    },
+
+    // 🎨 Aplicar color único + animación neón
+    eventDidMount: function(info) {
+      const title = info.event.title;
+      const color = colorFromName(title);
+
+      info.el.style.backgroundColor = color;
+      info.el.style.border = "none";
+      info.el.style.color = "#000";
+      info.el.style.fontWeight = "600";
+      info.el.style.boxShadow = `0 0 12px ${color}, 0 0 20px ${color}`;
+
+      // ✨ Animación suave de brillo
+      info.el.style.animation = "neonPulse 1.8s ease-in-out infinite alternate";
+    }
+  });
+
+  calendar.render();
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+    initialView: 'dayGridMonth',
+
+    googleCalendarApiKey: 'AIzaSyDgp1W2ygOSoJwv6VIXhzz2JAg075KFN3g',
+
+    eventSources: [
+      {
+        googleCalendarId: 'f5bf2690b6d0d713c1265dc3683e002e37929d5b193ec468e542ddeedfe747bf@group.calendar.google.com'
+      }
+    ],
+
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,listWeek'
+    },
+
+    eventDidMount(info) {
+      const name = info.event.title;
+      const hash = [...name].reduce((a, c) => c.charCodeAt(0) + ((a << 5) - a), 0);
+      const hue = Math.abs(hash) % 360;
+      const color = `hsl(${hue}, 90%, 55%)`;
+
+      info.el.style.backgroundColor = color;
+      info.el.style.color = "#000";
+      info.el.style.border = "none";
+      info.el.style.boxShadow = `0 0 12px ${color}, 0 0 20px ${color}`;
+      info.el.style.animation = "neonPulse 1.8s ease-in-out infinite alternate";
+    }
+  });
+
+  calendar.render();
+});
+</script>
+
+<style>
+@keyframes neonPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+</style>
+
+
+<style>
+/* ✨ Animación de brillo neón */
+@keyframes neonPulse {
+  from {
+    box-shadow: 0 0 8px var(--color), 0 0 14px var(--color);
+    transform: scale(1);
+  }
+  to {
+    box-shadow: 0 0 18px var(--color), 0 0 28px var(--color);
+    transform: scale(1.02);
+  }
+}
+</style>
 
 
 </body>
