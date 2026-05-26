@@ -1,0 +1,81 @@
+{
+  "es": {
+    "menu_home": "Inicio",
+    "menu_calendar": "Calendario",
+    "menu_about": "Sobre mí",
+    "menu_settings": "Ajustes",
+    "footer_rights": "Todos los derechos reservados",
+
+    "home_title": "Bienvenido",
+    "home_desc": "Esta es la página principal.",
+
+    "calendar_title": "Calendario",
+    "calendar_desc": "Consulta tus turnos sincronizados.",
+
+    "about_title": "Sobre mí",
+    "about_desc": "Aquí puedes poner tu información personal.",
+
+    "settings_title": "Ajustes",
+    "settings_desc": "Opciones adicionales de configuración."
+  },
+
+  "ca": {
+    "menu_home": "Inici",
+    "menu_calendar": "Calendari",
+    "menu_about": "Sobre mi",
+    "menu_settings": "Configuració",
+    "footer_rights": "Tots els drets reservats",
+
+    "home_title": "Benvingut",
+    "home_desc": "Aquesta és la pàgina principal.",
+
+    "calendar_title": "Calendari",
+    "calendar_desc": "Consulta els teus torns sincronitzats.",
+
+    "about_title": "Sobre mi",
+    "about_desc": "Aquí pots posar la teva informació personal.",
+
+    "settings_title": "Configuració",
+    "settings_desc": "Opcions addicionals de configuració."
+  },
+
+  "en": {
+    "menu_home": "Home",
+    "menu_calendar": "Calendar",
+    "menu_about": "About me",
+    "menu_settings": "Settings",
+    "footer_rights": "All rights reserved",
+
+    "home_title": "Welcome",
+    "home_desc": "This is the main page.",
+
+    "calendar_title": "Calendar",
+    "calendar_desc": "Check your synchronized shifts.",
+
+    "about_title": "About me",
+    "about_desc": "Here you can add your personal information.",
+
+    "settings_title": "Settings",
+    "settings_desc": "Additional configuration options."
+  },
+
+  "it": {
+    "menu_home": "Home",
+    "menu_calendar": "Calendario",
+    "menu_about": "Chi sono",
+    "menu_settings": "Impostazioni",
+    "footer_rights": "Tutti i diritti riservati",
+
+    "home_title": "Benvenuto",
+    "home_desc": "Questa è la pagina principale.",
+
+    "calendar_title": "Calendario",
+    "calendar_desc": "Controlla i tuoi turni sincronizzati.",
+
+    "about_title": "Chi sono",
+    "about_desc": "Qui puoi inserire le tue informazioni personali.",
+
+    "settings_title": "Impostazioni",
+    "settings_desc": "Opzioni di configurazione aggiuntive."
+  }
+}

@@ -1,3 +1,6 @@
+let translations = {};
+let currentLang = "es";
+
 // -----------------------------
 // CARGAR HEADER Y FOOTER
 // -----------------------------
@@ -16,6 +19,17 @@ function loadComponent(id, file) {
 loadComponent("header", "components/header.html");
 loadComponent("footer", "components/footer.html");
 
+// -----------------------------
+// CARGAR TRADUCCIONES
+// -----------------------------
+fetch("translations/translations.json")
+  .then(r => r.json())
+  .then(json => {
+    translations = json;
+    const saved = localStorage.getItem("lang") || "es";
+    currentLang = saved;
+    applyLanguage(currentLang);
+  });
 
 // -----------------------------
 // MODO CLARO / OSCURO
@@ -38,64 +52,36 @@ function initTheme() {
 // -----------------------------
 // IDIOMAS
 // -----------------------------
-const translations = {
-  es: {
-    menu_home: "Inicio",
-    menu_calendar: "Calendario",
-    menu_about: "Sobre mí",
-    menu_settings: "Ajustes",
-    footer_rights: "Todos los derechos reservados"
-  },
-  ca: {
-    menu_home: "Inici",
-    menu_calendar: "Calendari",
-    menu_about: "Sobre mi",
-    menu_settings: "Configuració",
-    footer_rights: "Tots els drets reservats"
-  },
-  en: {
-    menu_home: "Home",
-    menu_calendar: "Calendar",
-    menu_about: "About me",
-    menu_settings: "Settings",
-    footer_rights: "All rights reserved"
-  },
-  it: {
-    menu_home: "Home",
-    menu_calendar: "Calendario",
-    menu_about: "Chi sono",
-    menu_settings: "Impostazioni",
-    footer_rights: "Tutti i diritti riservati"
-  }
-};
-
 function initLanguage() {
-  const saved = localStorage.getItem("lang") || "es";
-  applyLanguage(saved);
-
   const select = document.getElementById("lang-select");
-  select.value = saved;
+  select.value = currentLang;
 
   select.addEventListener("change", () => {
-    const lang = select.value;
-    localStorage.setItem("lang", lang);
-    applyLanguage(lang);
+    currentLang = select.value;
+    localStorage.setItem("lang", currentLang);
+    applyLanguage(currentLang);
   });
 }
 
 function applyLanguage(lang) {
+  if (!translations[lang]) return;
+
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    el.textContent = translations[lang][key];
+    const t = translations[lang][key];
+    if (t) el.textContent = t;
   });
 }
 
-// MINI-SPA SUAVE PARA EL MENÚ
+// -----------------------------
+// MINI‑SPA: NAVEGACIÓN SIN RECARGAR
+// -----------------------------
 document.addEventListener("click", (e) => {
   const link = e.target.closest("a");
   if (!link) return;
+
   const href = link.getAttribute("href");
-  if (!href.endsWith(".html")) return;
+  if (!href || !href.endsWith(".html")) return;
 
   e.preventDefault();
 
@@ -109,12 +95,11 @@ document.addEventListener("click", (e) => {
       if (newContent && currentContent) {
         currentContent.innerHTML = newContent.innerHTML;
         window.history.pushState({}, "", href);
+        applyLanguage(currentLang);
       }
     });
 });
 
-
-// Mantener navegación al usar atrás/adelante
 window.addEventListener("popstate", () => {
   fetch(location.pathname)
     .then(r => r.text())
@@ -125,6 +110,7 @@ window.addEventListener("popstate", () => {
       const currentContent = document.querySelector(".content");
       if (newContent && currentContent) {
         currentContent.innerHTML = newContent.innerHTML;
+        applyLanguage(currentLang);
       }
     });
 });
