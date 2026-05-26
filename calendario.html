@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Calendario de Turnos</title>
+  <title>Calendario de Turnos - Oscuro Neón</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- FullCalendar -->
@@ -10,84 +10,137 @@
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 
   <style>
+    /* --- ESTILO GLOBAL --- */
     body {
       margin: 0;
       font-family: "Segoe UI", sans-serif;
-      background: #eef1f5;
+      background: #0d0d0d;
+      color: #e5e5e5;
     }
 
+    /* --- CABECERA --- */
     header {
-      background: #2563eb;
-      padding: 15px 30px;
-      color: white;
-      font-size: 1.3rem;
+      background: #111;
+      padding: 18px 30px;
+      font-size: 1.4rem;
       font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      color: #00bfff;
+      border-bottom: 1px solid #00bfff33;
+      box-shadow: 0 0 15px #00bfff33;
+      text-shadow: 0 0 8px #00bfff;
     }
 
+    /* --- MENÚ --- */
     nav {
-      background: white;
-      padding: 10px 30px;
+      background: #111;
+      padding: 12px 30px;
       display: flex;
-      gap: 20px;
-      border-bottom: 1px solid #d1d5db;
+      gap: 25px;
+      border-bottom: 1px solid #00bfff22;
     }
 
     nav a {
       text-decoration: none;
-      color: #1f2937;
+      color: #cccccc;
       font-weight: 500;
+      transition: 0.2s;
     }
 
     nav a:hover {
-      color: #2563eb;
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
     }
 
+    /* --- CONTENEDOR PRINCIPAL --- */
     .content {
       max-width: 1100px;
       margin: 40px auto;
-      background: white;
+      background: #111;
       padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      box-shadow: 0 0 25px #00bfff22;
+      border: 1px solid #00bfff33;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    p {
+      color: #bbbbbb;
+    }
+
+    /* --- ESTILO FULLCALENDAR OSCURO NEÓN --- */
+    #calendar {
+      margin-top: 20px;
+    }
+
+    .fc {
+      background: #111;
+      color: #e5e5e5;
     }
 
     .fc-toolbar-title {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      color: #1f2937;
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
     }
 
     .fc-button {
-      background: #2563eb !important;
+      background: #00bfff !important;
       border: none !important;
-      border-radius: 6px !important;
-      padding: 6px 14px !important;
+      border-radius: 8px !important;
+      padding: 6px 12px !important;
       font-size: 0.9rem !important;
+      font-weight: 500 !important;
+      color: #000 !important;
+      box-shadow: 0 0 10px #00bfff55;
+      transition: 0.2s;
     }
 
     .fc-button:hover {
-      background: #1e4fc9 !important;
+      background: #33d4ff !important;
+      box-shadow: 0 0 16px #00e0ffaa;
+    }
+
+    .fc-daygrid-day-number,
+    .fc-col-header-cell-cushion {
+      color: #e5e5e5;
+    }
+
+    .fc-daygrid-day,
+    .fc-timegrid-slot,
+    .fc-list {
+      background: #111;
+      border-color: #333 !important;
+    }
+
+    .fc-day-today {
+      background: #00111a !important;
     }
 
     .fc-event {
-      background: #2563eb !important;
+      background: #00bfff !important;
       border: none !important;
       border-radius: 6px !important;
       padding: 2px 4px !important;
       font-size: 0.85rem !important;
+      color: #000 !important;
+      box-shadow: 0 0 10px #00bfffaa;
     }
 
-    .fc-daygrid-day-number {
-      font-weight: 600;
-      color: #374151;
+    .fc-list-event:hover td {
+      background: #00111a !important;
     }
   </style>
 </head>
 
 <body>
 
-<header>Mi Web Corporativa</header>
+<header>Mi Web Oscura Neón</header>
 
 <nav>
   <a href="index.html">Inicio</a>
@@ -97,9 +150,9 @@
 </nav>
 
 <div class="content">
-  <h2 style="margin-top:0; color:#1f2937;">Calendario de Turnos</h2>
-  <p style="color:#4b5563; margin-bottom:20px;">
-    Aquí puedes ver tus turnos sincronizados automáticamente desde Google Calendar.
+  <h2>Calendario de Turnos</h2>
+  <p>
+    Consulta tus turnos sincronizados automáticamente desde Google Calendar, con un diseño oscuro y acentos neón.
   </p>
 
   <div id="calendar"></div>
@@ -109,9 +162,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
     initialView: 'dayGridMonth',
-    googleCalendarApiKey: 'TU_API_KEY',
+    googleCalendarApiKey: 'AIzaSyDgp1W2ygOSoJwv6VIXhzz2JAg075KFN3g',
     events: {
-      googleCalendarId: 'TU_CALENDAR_ID'
+      googleCalendarId: 'f5bf2690b6d0d713c1265dc3683e002e37929d5b193ec468e542ddeedfe747bf@group.calendar.google.com'
     },
     headerToolbar: {
       left: 'prev,next today',
