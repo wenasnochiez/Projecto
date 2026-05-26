@@ -159,11 +159,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
     initialView: 'dayGridMonth',
 
-    googleCalendarApiKey: 'AIzaSyDgp1W2ygOSoJwv6VIXhzz2JAg075KFN3g',
-
+    // 🔑 Clave de API global
     eventSources: [
       {
         googleCalendarId: 'f5bf2690b6d0d713c1265dc3683e002e37929d5b193ec468e542ddeedfe747bf@group.calendar.google.com',
+        apiKey: 'AIzaSyDgp1W2ygOSoJwv6VIXhzz2JAg075KFN3g',
         className: 'gcal-event'
       }
     ],
@@ -178,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
   calendar.render();
 });
 </script>
+
 
 </body>
 </html>
