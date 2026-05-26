@@ -131,10 +131,6 @@
       color: #000 !important;
       box-shadow: 0 0 10px #00bfffaa;
     }
-
-    .fc-list-event:hover td {
-      background: #00111a !important;
-    }
   </style>
 </head>
 
@@ -162,16 +158,23 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
     initialView: 'dayGridMonth',
+
     googleCalendarApiKey: 'AIzaSyDgp1W2ygOSoJwv6VIXhzz2JAg075KFN3g',
-    events: {
-      googleCalendarId: 'f5bf2690b6d0d713c1265dc3683e002e37929d5b193ec468e542ddeedfe747bf@group.calendar.google.com'
-    },
+
+    eventSources: [
+      {
+        googleCalendarId: 'f5bf2690b6d0d713c1265dc3683e002e37929d5b193ec468e542ddeedfe747bf@group.calendar.google.com',
+        className: 'gcal-event'
+      }
+    ],
+
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,listWeek'
     }
   });
+
   calendar.render();
 });
 </script>
