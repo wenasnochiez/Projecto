@@ -72,7 +72,7 @@ window.addEventListener("popstate", () => {
 });
 
 // -----------------------------
-// MENÚ HAMBURGUESA
+// MENÚ HAMBURGUESA DERECHA
 // -----------------------------
 document.addEventListener("click", (e) => {
   const menu = document.getElementById("side-menu");
