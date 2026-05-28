@@ -84,3 +84,75 @@ document.addEventListener("click", (e) => {
     menu.classList.remove("open");
   }
 });
+
+// -----------------------------
+// POP-UP DE RECETAS
+// -----------------------------
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".recipe-card");
+  if (!card) return;
+
+  const title = card.querySelector("h2").textContent;
+
+  const recetas = {
+    "Tortilla de patatas": {
+      img: "img/tortilla.jpg",
+      ingredientes: [
+        "4 huevos",
+        "3 patatas",
+        "Aceite de oliva",
+        "Sal"
+      ],
+      pasos: [
+        "Pelar y cortar las patatas.",
+        "Freírlas a fuego medio.",
+        "Batir los huevos.",
+        "Mezclar todo y cuajar."
+      ]
+    },
+    "Pancakes proteicos": {
+      img: "img/pancakes.jpg",
+      ingredientes: [
+        "2 huevos",
+        "40g avena",
+        "1 scoop proteína",
+        "Leche"
+      ],
+      pasos: [
+        "Mezclar todos los ingredientes.",
+        "Calentar la sartén.",
+        "Verter la mezcla.",
+        "Dar la vuelta y servir."
+      ]
+    }
+  };
+
+  const r = recetas[title];
+
+  const modal = `
+    <div class="recipe-modal-bg">
+      <div class="recipe-modal">
+        <img src="${r.img}">
+        <h2>${title}</h2>
+
+        <h3>Ingredientes</h3>
+        <ul>${r.ingredientes.map(i => `<li>${i}</li>`).join("")}</ul>
+
+        <h3>Pasos</h3>
+        <ol>${r.pasos.map(p => `<li>${p}</li>`).join("")}</ol>
+
+        <button class="close-modal">Cerrar</button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("recipe-modal-container").innerHTML = modal;
+});
+
+// Cerrar modal
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("close-modal") ||
+      e.target.classList.contains("recipe-modal-bg")) {
+    document.getElementById("recipe-modal-container").innerHTML = "";
+  }
+});
