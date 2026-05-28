@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", system-ui, sans-serif;
-  background: radial-gradient(circle at top, #101020 0, #050509 40%, #000 100%);
+  background: radial-gradient(circle at top, #181a2c 0%, #0c0d18 40%, #05050c 100%);
   color: #e5e5e5;
   transition: background 0.3s, color 0.3s;
 }
@@ -106,39 +106,92 @@ body.light #theme-toggle {
   box-shadow: 0 0 10px #00bfff55;
 }
 
-/* MENÚ DESPLEGABLE DERECHA */
+/* ANIMACIÓN DEL MENÚ */
+@keyframes slideFadeGlow {
+  0% { opacity: 0; transform: translateX(40px); box-shadow: -4px 0 0px #00bfff00; }
+  60% { opacity: 1; transform: translateX(0); box-shadow: -4px 0 20px #00bfff44; }
+  100% { opacity: 1; box-shadow: -4px 0 25px #00bfff33; }
+}
+
+/* MENÚ DESPLEGABLE DERECHA — GLASS + BORDE REDONDEADO + ANIMACIÓN */
 .side-menu {
   position: fixed;
   top: 0;
   right: -260px;
   width: 260px;
   height: 100%;
-  background: #0b0b12;
-  box-shadow: -4px 0 20px #00bfff33;
+  background: rgba(10, 15, 25, 0.55);
+  backdrop-filter: blur(18px) saturate(160%);
+  border-left: 1px solid #00bfff55;
+  box-shadow: -4px 0 25px #00bfff33;
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   transition: right 0.3s ease;
   z-index: 9999;
+  border-radius: 0 0 0 18px;
 }
 
 .side-menu.open {
   right: 0;
+  animation: slideFadeGlow 0.45s ease forwards;
 }
 
-.side-menu a {
+/* POPUP GENERAL */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+/* CONTENIDO DEL POPUP */
+.popup-content {
+  background: rgba(15, 20, 35, 0.85);
+  border: 1px solid #00bfff55;
+  box-shadow: 0 0 25px #00bfff55;
+  border-radius: 18px;
+  padding: 26px;
+  width: 90%;
+  max-width: 480px;
+  animation: popupIn 0.35s ease;
   color: #e5e5e5;
-  text-decoration: none;
-  font-size: 1.1rem;
-  padding: 10px;
-  border-radius: 8px;
-  transition: 0.2s;
 }
 
-.side-menu a:hover {
-  background: #00bfff33;
-  box-shadow: 0 0 10px #00bfff55;
+/* ANIMACIONES POPUP */
+@keyframes popupIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes popupOut {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+/* IMAGEN */
+.popup-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 15px #00bfff55;
+}
+
+/* BOTÓN CERRAR */
+.close-popup {
+  float: right;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaffaa;
 }
 
 /* CONTENT */
