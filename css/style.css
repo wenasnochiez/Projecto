@@ -105,10 +105,10 @@ body.light {
   height: auto;
 
   background: #141422;
-  padding: 30px 20px;
+  padding: 20px 20px; /* 🔥 Reducido para evitar huecos */
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 18px;
   transition: right 0.4s ease, opacity 0.3s ease;
   z-index: 9999;
 
@@ -128,7 +128,7 @@ body.light {
 .side-menu a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
@@ -139,9 +139,9 @@ body.light {
 /* CONTENIDO — RESPONSIVE */
 .content {
   width: 100%;
-  max-width: 900px;
+  max-width: 800px; /* 🔥 Más estrecho para móvil */
   margin: 20px auto;
-  padding: 20px;
+  padding: 16px; /* 🔥 Reducido */
   background: #141422;
   border-radius: 18px;
   border: 1px solid #00bfff33;
@@ -151,23 +151,23 @@ body.light {
 /* FOOTER ORIGINAL */
 .main-footer {
   text-align: center;
-  padding: 18px;
+  padding: 14px;
   font-size: 0.85rem;
   opacity: 0.7;
-  margin-top: 40px;
+  margin-top: 20px; /* 🔥 Reducido */
 }
 
 /* RECIPE GRID */
 .recipe-grid {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 /* RECIPE CARD */
 .recipe-card {
   background: #141422;
-  padding: 20px;
+  padding: 16px;
   border-radius: 16px;
   border: 1px solid #00bfff33;
   box-shadow: 0 0 20px #00bfff22;
