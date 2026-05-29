@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", system-ui, sans-serif;
-  background: radial-gradient(circle at top, #181a2c 0%, #0c0d18 40%, #05050c 100%);
+  background: radial-gradient(circle at top, #1a1a2d 0, #11111d 40%, #0b0b14 100%);
   color: #e5e5e5;
   transition: background 0.3s, color 0.3s;
 }
@@ -12,7 +12,7 @@ body.light {
   color: #111;
 }
 
-/* HEADER GENERAL */
+/* HEADER */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -27,15 +27,11 @@ body.light {
 }
 
 /* BOTÓN INICIO CIRCULAR */
-.home-button {
-  text-decoration: none;
-}
-
 .home-circle {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #0b0b12;
+  background: #141422;
   border: 2px solid #00c8ff;
   box-shadow: 0 0 12px #00c8ff88;
   display: flex;
@@ -86,12 +82,6 @@ body.light {
   box-shadow: 0 0 10px #00bfff33;
 }
 
-body.light #lang-select,
-body.light #theme-toggle {
-  background: #fff;
-  color: #111;
-}
-
 /* MENÚ HAMBURGUESA */
 .menu-icon {
   font-size: 1.8rem;
@@ -106,90 +96,41 @@ body.light #theme-toggle {
   box-shadow: 0 0 10px #00bfff55;
 }
 
-/* ANIMACIÓN DEL MENÚ */
-@keyframes slideFadeGlow {
-  0% { opacity: 0; transform: translateX(40px); box-shadow: -4px 0 0px #00bfff00; }
-  60% { opacity: 1; transform: translateX(0); box-shadow: -4px 0 20px #00bfff44; }
-  100% { opacity: 1; box-shadow: -4px 0 25px #00bfff33; }
-}
-
-/* MENÚ DESPLEGABLE DERECHA — GLASS + BORDE REDONDEADO + ANIMACIÓN */
+/* MENÚ DESPLEGABLE DERECHA */
 .side-menu {
   position: fixed;
   top: 0;
   right: -260px;
   width: 260px;
   height: 100%;
-  background: rgba(10, 15, 25, 0.55);
-  backdrop-filter: blur(18px) saturate(160%);
-  border-left: 1px solid #00bfff55;
-  box-shadow: -4px 0 25px #00bfff33;
+  background: #141422;
+  box-shadow: -4px 0 20px #00bfff33;
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  transition: right 0.3s ease;
+  gap: 25px;
+  transition: right 0.4s ease;
   z-index: 9999;
-  border-radius: 0 0 0 18px;
+  border-bottom-left-radius: 22px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .side-menu.open {
   right: 0;
-  animation: slideFadeGlow 0.45s ease forwards;
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* POPUP GENERAL */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(6px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
+.side-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: 0.2s;
 }
 
-/* CONTENIDO DEL POPUP */
-.popup-content {
-  background: rgba(15, 20, 35, 0.85);
-  border: 1px solid #00bfff55;
-  box-shadow: 0 0 25px #00bfff55;
-  border-radius: 18px;
-  padding: 26px;
-  width: 90%;
-  max-width: 480px;
-  animation: popupIn 0.35s ease;
-  color: #e5e5e5;
-}
-
-/* ANIMACIONES POPUP */
-@keyframes popupIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes popupOut {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(0.8); opacity: 0; }
-}
-
-/* IMAGEN */
-.popup-img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  box-shadow: 0 0 15px #00bfff55;
-}
-
-/* BOTÓN CERRAR */
-.close-popup {
-  float: right;
-  cursor: pointer;
-  font-size: 1.4rem;
+.side-menu a:hover {
   color: #00eaff;
   text-shadow: 0 0 10px #00eaffaa;
 }
@@ -199,54 +140,93 @@ body.light #theme-toggle {
   max-width: 1000px;
   margin: 40px auto;
   padding: 24px;
-  background: #0b0b12;
+  background: #141422;
   border-radius: 18px;
   border: 1px solid #00bfff33;
   box-shadow: 0 0 30px #00bfff22;
 }
 
-body.light .content {
-  background: #ffffff;
-  box-shadow: 0 0 20px #00000011;
-}
-
-/* TITLES */
-h1, h2 {
-  color: #00c8ff;
-  text-shadow: 0 0 10px #00c8ff88;
-}
-
-/* FOOTER */
-.main-footer {
-  text-align: center;
-  padding: 18px;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* RECIPE & GALLERY CARDS */
-.recipe-grid, .gallery-grid {
+/* RECIPE CARDS */
+.recipe-grid {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.recipe-card, .cv-card, .gallery-item {
-  background: #0b0b12;
+.recipe-card {
+  background: #141422;
   padding: 20px;
   border-radius: 16px;
   border: 1px solid #00bfff33;
   box-shadow: 0 0 20px #00bfff22;
   cursor: pointer;
-  transition: 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .recipe-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 25px #00bfff55;
+  transform: scale(1.04);
+  box-shadow: 0 0 35px #00eaff66;
 }
 
-.gallery-item {
+/* EXPANSIÓN CON ZOOM + DESENFOQUE */
+.expanded-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  border-radius: 16px;
+  height: 100%;
+  backdrop-filter: blur(14px);
+  background: #00000088;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.expanded-card {
+  background: #141422;
+  width: 90%;
+  max-width: 650px;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #00bfff55;
+  box-shadow: 0 0 40px #00bfff55;
+  animation: expandZoom 0.35s ease forwards;
+}
+
+@keyframes expandZoom {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes closeZoom {
+  from { transform: scale(1); opacity: 1; }
+  to   { transform: scale(0.4); opacity: 0; }
+}
+
+.expanded-card.closing {
+  animation: closeZoom 0.3s ease forwards;
+}
+
+.expanded-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.close-expanded {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 1.6rem;
+  color: #00eaff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 0 10px #00eaffaa;
+  transition: 0.2s;
+}
+
+.close-expanded:hover {
+  transform: scale(1.2);
 }

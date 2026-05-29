@@ -50,6 +50,7 @@ document.addEventListener("click", (e) => {
       const doc = parser.parseFromString(html, "text/html");
       const newContent = doc.querySelector(".content");
       const currentContent = document.querySelector(".content");
+
       if (newContent && currentContent) {
         currentContent.innerHTML = newContent.innerHTML;
         window.history.pushState({}, "", href);
@@ -65,6 +66,7 @@ window.addEventListener("popstate", () => {
       const doc = parser.parseFromString(html, "text/html");
       const newContent = doc.querySelector(".content");
       const currentContent = document.querySelector(".content");
+
       if (newContent && currentContent) {
         currentContent.innerHTML = newContent.innerHTML;
       }
@@ -86,7 +88,7 @@ document.addEventListener("click", (e) => {
 });
 
 // -----------------------------
-// POP-UP DE RECETAS
+// EXPANSIÓN DE RECETA (ZOOM + DESENFOQUE)
 // -----------------------------
 document.addEventListener("click", (e) => {
   const card = e.target.closest(".recipe-card");
@@ -129,9 +131,10 @@ document.addEventListener("click", (e) => {
 
   const r = recetas[title];
 
-  const modal = `
-    <div class="recipe-modal-bg">
-      <div class="recipe-modal">
+  const expanded = `
+    <div class="expanded-bg">
+      <div class="expanded-card">
+        <button class="close-expanded">✖</button>
         <img src="${r.img}">
         <h2>${title}</h2>
 
@@ -140,19 +143,28 @@ document.addEventListener("click", (e) => {
 
         <h3>Pasos</h3>
         <ol>${r.pasos.map(p => `<li>${p}</li>`).join("")}</ol>
-
-        <button class="close-modal">Cerrar</button>
       </div>
     </div>
   `;
 
-  document.getElementById("recipe-modal-container").innerHTML = modal;
+  document.getElementById("expanded-recipe").innerHTML = expanded;
 });
 
-// Cerrar modal
+// -----------------------------
+// CIERRE CON ANIMACIÓN (ZOOM OUT)
+// -----------------------------
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("close-modal") ||
-      e.target.classList.contains("recipe-modal-bg")) {
-    document.getElementById("recipe-modal-container").innerHTML = "";
-  }
+  const bg = e.target.classList.contains("expanded-bg");
+  const closeBtn = e.target.classList.contains("close-expanded");
+
+  if (!bg && !closeBtn) return;
+
+  const card = document.querySelector(".expanded-card");
+  if (!card) return;
+
+  card.classList.add("closing");
+
+  setTimeout(() => {
+    document.getElementById("expanded-recipe").innerHTML = "";
+  }, 280);
 });
