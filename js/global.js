@@ -32,7 +32,7 @@ function initTheme() {
 }
 
 // -----------------------------
-// MINI‑SPA (NAVEGACIÓN SIN RECARGAR)
+// MINI‑SPA
 // -----------------------------
 document.addEventListener("click", (e) => {
   const link = e.target.closest("a");
@@ -74,7 +74,7 @@ window.addEventListener("popstate", () => {
 });
 
 // -----------------------------
-// MENÚ HAMBURGUESA DERECHA
+// MENÚ HAMBURGUESA
 // -----------------------------
 document.addEventListener("click", (e) => {
   const menu = document.getElementById("side-menu");
@@ -88,7 +88,7 @@ document.addEventListener("click", (e) => {
 });
 
 // -----------------------------
-// EXPANSIÓN DE RECETA (ZOOM + DESENFOQUE)
+// EXPANSIÓN DE RECETA
 // -----------------------------
 document.addEventListener("click", (e) => {
   const card = e.target.closest(".recipe-card");
@@ -99,12 +99,7 @@ document.addEventListener("click", (e) => {
   const recetas = {
     "Tortilla de patatas": {
       img: "img/tortilla.jpg",
-      ingredientes: [
-        "4 huevos",
-        "3 patatas",
-        "Aceite de oliva",
-        "Sal"
-      ],
+      ingredientes: ["4 huevos", "3 patatas", "Aceite de oliva", "Sal"],
       pasos: [
         "Pelar y cortar las patatas.",
         "Freírlas a fuego medio.",
@@ -114,12 +109,7 @@ document.addEventListener("click", (e) => {
     },
     "Pancakes proteicos": {
       img: "img/pancakes.jpg",
-      ingredientes: [
-        "2 huevos",
-        "40g avena",
-        "1 scoop proteína",
-        "Leche"
-      ],
+      ingredientes: ["2 huevos", "40g avena", "1 scoop proteína", "Leche"],
       pasos: [
         "Mezclar todos los ingredientes.",
         "Calentar la sartén.",
@@ -132,9 +122,10 @@ document.addEventListener("click", (e) => {
   const r = recetas[title];
 
   const expanded = `
-    <div class="expanded-bg">
-      <div class="expanded-card">
-        <button class="close-expanded">✖</button>
+    <div class="expanded-bg" id="expanded-bg">
+      <div class="expanded-card" id="expanded-card">
+        <button class="close-expanded">✕</button>
+
         <img src="${r.img}">
         <h2>${title}</h2>
 
@@ -151,20 +142,23 @@ document.addEventListener("click", (e) => {
 });
 
 // -----------------------------
-// CIERRE CON ANIMACIÓN (ZOOM OUT)
+// CIERRE CON ANIMACIÓN
 // -----------------------------
 document.addEventListener("click", (e) => {
-  const bg = e.target.classList.contains("expanded-bg");
-  const closeBtn = e.target.classList.contains("close-expanded");
+  const bg = document.getElementById("expanded-bg");
+  const card = document.getElementById("expanded-card");
 
-  if (!bg && !closeBtn) return;
+  if (!bg) return;
 
-  const card = document.querySelector(".expanded-card");
-  if (!card) return;
+  const clickedClose =
+    e.target.classList.contains("close-expanded") ||
+    e.target.classList.contains("expanded-bg");
 
-  card.classList.add("closing");
+  if (clickedClose) {
+    card.classList.add("closing");
 
-  setTimeout(() => {
-    document.getElementById("expanded-recipe").innerHTML = "";
-  }, 280);
+    setTimeout(() => {
+      document.getElementById("expanded-recipe").innerHTML = "";
+    }, 250);
+  }
 });

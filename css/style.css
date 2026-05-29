@@ -109,9 +109,10 @@ body.light {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  transition: right 0.4s ease;
+  transition: right 0.4s ease, opacity 0.3s ease;
   z-index: 9999;
   border-bottom-left-radius: 22px;
+
   opacity: 0;
   pointer-events: none;
 }
@@ -192,6 +193,7 @@ body.light {
   border: 1px solid #00bfff55;
   box-shadow: 0 0 40px #00bfff55;
   animation: expandZoom 0.35s ease forwards;
+  position: relative;
 }
 
 @keyframes expandZoom {
