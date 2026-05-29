@@ -26,6 +26,23 @@ body.light {
   z-index: 1000;
 }
 
+/* FOOTER CENTRADO ABAJO */
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 14px 0;
+  font-size: 0.9rem;
+  color: #e5e5e5;
+  background: #141422;
+  border-top: 1px solid #00bfff55;
+  box-shadow: 0 -4px 20px #00bfff33;
+  text-shadow: 0 0 8px #00eaff55;
+  z-index: 1000;
+}
+
 /* BOTÓN INICIO CIRCULAR */
 .home-circle {
   width: 42px;
@@ -233,22 +250,4 @@ body.light {
 
 .close-expanded:hover {
   transform: scale(1.2);
-}
-
-
-/* FOOTER CENTRADO ABAJO */
-.main-footer {
-  position: fixed;        /* sempre visible a baix */
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 14px 0;
-  font-size: 0.9rem;
-  color: #e5e5e5;
-  background: #141422;
-  border-top: 1px solid #00bfff55;
-  box-shadow: 0 -4px 20px #00bfff33;
-  text-shadow: 0 0 8px #00eaff55;
-  z-index: 1000;
 }
