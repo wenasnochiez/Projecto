@@ -96,13 +96,13 @@ body.light {
   box-shadow: 0 0 10px #00bfff55;
 }
 
+
 /* MENÚ DESPLEGABLE DERECHA */
 .side-menu {
   position: fixed;
   top: 0;
   right: -260px;
-  width: 260px;
-  height: 100%;
+  min-height: 100vh; /* ocupa tota la pantalla com a mínim */
   background: #141422;
   box-shadow: -4px 0 20px #00bfff33;
   padding: 30px 20px;
@@ -128,6 +128,7 @@ body.light {
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: 500;
+  padding: 10px 0;
   transition: 0.2s;
 }
 
@@ -135,6 +136,7 @@ body.light {
   color: #00eaff;
   text-shadow: 0 0 10px #00eaffaa;
 }
+
 
 /* CONTENT */
 .content {
@@ -231,4 +233,22 @@ body.light {
 
 .close-expanded:hover {
   transform: scale(1.2);
+}
+
+
+/* FOOTER CENTRADO ABAJO */
+.main-footer {
+  position: fixed;        /* sempre visible a baix */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 14px 0;
+  font-size: 0.9rem;
+  color: #e5e5e5;
+  background: #141422;
+  border-top: 1px solid #00bfff55;
+  box-shadow: 0 -4px 20px #00bfff33;
+  text-shadow: 0 0 8px #00eaff55;
+  z-index: 1000;
 }
