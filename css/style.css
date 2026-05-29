@@ -17,7 +17,7 @@ body.light {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 26px;
+  padding: 14px 20px;
   border-bottom: 1px solid #00bfff55;
   box-shadow: 0 0 18px #00bfff33;
   backdrop-filter: blur(10px);
@@ -26,7 +26,7 @@ body.light {
   z-index: 1000;
 }
 
-/* BOTÓN INICIO CIRCULAR */
+/* BOTÓN INICIO */
 .home-circle {
   width: 42px;
   height: 42px;
@@ -51,13 +51,13 @@ body.light {
   text-shadow: 0 0 10px #00eaffaa;
 }
 
-/* NOMBRE CENTRADO */
+/* TÍTULO */
 .site-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 3px;
   color: #00eaff;
-  text-shadow: 0 0 12px #00eaffaa, 0 0 25px #00eaff55;
+  text-shadow: 0 0 12px #00eaffaa;
   margin: 0 auto;
   pointer-events: none;
 }
@@ -66,10 +66,10 @@ body.light {
 .controls-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-/* SELECT IDIOMA + TEMA */
+/* SELECT + TEMA */
 #lang-select,
 #theme-toggle {
   background: #111;
@@ -79,7 +79,6 @@ body.light {
   padding: 6px 10px;
   font-size: 0.85rem;
   cursor: pointer;
-  box-shadow: 0 0 10px #00bfff33;
 }
 
 /* MENÚ HAMBURGUESA */
@@ -93,24 +92,27 @@ body.light {
 
 .menu-icon:hover {
   background: #00bfff33;
-  box-shadow: 0 0 10px #00bfff55;
 }
 
-/* MENÚ DESPLEGABLE DERECHA (ORIGINAL + ARREGLADO) */
+/* MENÚ DESPLEGABLE ORIGINAL */
 .side-menu {
   position: fixed;
   top: 0;
   right: -260px;
   width: 260px;
-  min-height: 100vh; /* 🔥 ara el fons cobreix totes les opcions */
+
+  /* 🔥 Solo ocupa lo que miden las opciones */
+  height: auto;
+
   background: #141422;
-  box-shadow: -4px 0 20px #00bfff33;
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
   gap: 25px;
   transition: right 0.4s ease, opacity 0.3s ease;
   z-index: 9999;
+
+  /* 🔥 Borde original */
   border-bottom-left-radius: 22px;
 
   opacity: 0;
@@ -128,23 +130,22 @@ body.light {
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: 500;
-  transition: 0.2s;
 }
 
 .side-menu a:hover {
   color: #00eaff;
-  text-shadow: 0 0 10px #00eaffaa;
 }
 
-/* CONTENT */
+/* CONTENIDO — RESPONSIVE */
 .content {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 24px;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
   background: #141422;
   border-radius: 18px;
   border: 1px solid #00bfff33;
-  box-shadow: 0 0 30px #00bfff22;
+  box-shadow: 0 0 20px #00bfff22;
 }
 
 /* FOOTER ORIGINAL */
@@ -156,13 +157,14 @@ body.light {
   margin-top: 40px;
 }
 
-/* RECIPE CARDS */
+/* RECIPE GRID */
 .recipe-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+/* RECIPE CARD */
 .recipe-card {
   background: #141422;
   padding: 20px;
@@ -170,7 +172,7 @@ body.light {
   border: 1px solid #00bfff33;
   box-shadow: 0 0 20px #00bfff22;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: 0.25s;
 }
 
 .recipe-card:hover {
@@ -178,7 +180,7 @@ body.light {
   box-shadow: 0 0 35px #00eaff66;
 }
 
-/* EXPANSIÓN CON ZOOM + DESENFOQUE */
+/* EXPANSIÓN */
 .expanded-bg {
   position: fixed;
   top: 0;
@@ -200,7 +202,6 @@ body.light {
   padding: 30px;
   border-radius: 20px;
   border: 1px solid #00bfff55;
-  box-shadow: 0 0 40px #00bfff55;
   animation: expandZoom 0.35s ease forwards;
   position: relative;
 }
@@ -219,12 +220,6 @@ body.light {
   animation: closeZoom 0.3s ease forwards;
 }
 
-.expanded-card img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
 .close-expanded {
   position: absolute;
   top: 20px;
@@ -234,10 +229,4 @@ body.light {
   background: none;
   border: none;
   cursor: pointer;
-  text-shadow: 0 0 10px #00eaffaa;
-  transition: 0.2s;
-}
-
-.close-expanded:hover {
-  transform: scale(1.2);
 }
