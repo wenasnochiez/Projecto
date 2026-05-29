@@ -26,23 +26,6 @@ body.light {
   z-index: 1000;
 }
 
-/* FOOTER CENTRADO ABAJO */
-.main-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 14px 0;
-  font-size: 0.9rem;
-  color: #e5e5e5;
-  background: #141422;
-  border-top: 1px solid #00bfff55;
-  box-shadow: 0 -4px 20px #00bfff33;
-  text-shadow: 0 0 8px #00eaff55;
-  z-index: 1000;
-}
-
 /* BOTÓN INICIO CIRCULAR */
 .home-circle {
   width: 42px;
@@ -113,13 +96,13 @@ body.light {
   box-shadow: 0 0 10px #00bfff55;
 }
 
-
-/* MENÚ DESPLEGABLE DERECHA */
+/* MENÚ DESPLEGABLE DERECHA (ORIGINAL + ARREGLADO) */
 .side-menu {
   position: fixed;
   top: 0;
   right: -260px;
-  min-height: 100vh; /* ocupa tota la pantalla com a mínim */
+  width: 260px;
+  min-height: 100vh; /* 🔥 ara el fons cobreix totes les opcions */
   background: #141422;
   box-shadow: -4px 0 20px #00bfff33;
   padding: 30px 20px;
@@ -145,7 +128,6 @@ body.light {
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: 500;
-  padding: 10px 0;
   transition: 0.2s;
 }
 
@@ -153,7 +135,6 @@ body.light {
   color: #00eaff;
   text-shadow: 0 0 10px #00eaffaa;
 }
-
 
 /* CONTENT */
 .content {
@@ -164,6 +145,15 @@ body.light {
   border-radius: 18px;
   border: 1px solid #00bfff33;
   box-shadow: 0 0 30px #00bfff22;
+}
+
+/* FOOTER ORIGINAL */
+.main-footer {
+  text-align: center;
+  padding: 18px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 40px;
 }
 
 /* RECIPE CARDS */
