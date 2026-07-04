@@ -116,6 +116,14 @@ document.addEventListener("click", (e) => {
         "Verter la mezcla.",
         "Dar la vuelta y servir."
       ]
+    },
+    "Tostada de queso y pavo": {
+      img: "img/pancakes.jpg",
+      ingredientes: ["1 Rebnada de pan de molde de semillas tostado", "2 lonchas de Pavo", "1 Quesito semicurado", "40g Queso fresco Batido", "200ml Leche Proteinas"],
+      pasos: [
+        "Mezclar los dis quesos y untarlos en el pan",
+        "Poner encima las dos lonchas de pavo"
+      ]
     }
   };
 
